@@ -13,7 +13,8 @@ func process(_delta: float) -> void:
 
 
 func enter(_data = null) -> void:
-	pass
+	# get rid of the stupid unused warning...
+	switch.is_null()
 
 
 func exit(_data = null) -> void:

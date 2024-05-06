@@ -1,13 +1,14 @@
 extends CharacterBody2D
 
-const ACCELERATION_FLOOR = 5.0
-const DECELERATION_FLOOR = 10.0
-const ACCELERATION_AIR = 1.0
-const MAX_SPEED = 150.0
-const JUMP_VELOCITY = -400.0
+const ACCELERATION_FLOOR := 5.0
+const DECELERATION_FLOOR := 10.0
+const ACCELERATION_AIR := 1.0
+const MAX_SPEED := 150.0
+const JUMP_VELOCITY := -400.0
+const COYOTE_TIME := 0.1
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	# Add the gravity.
 	#if not is_on_floor():
 		#velocity += get_gravity() * delta
