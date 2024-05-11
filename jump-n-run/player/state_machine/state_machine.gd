@@ -13,7 +13,7 @@ var _current_state: PlayerState
 
 func _ready() -> void:
 	_current_state = initial_state
-	for child in get_children():
+	for child: Node in get_children():
 		if not child is PlayerState:
 			continue
 		var state: PlayerState = child
@@ -22,6 +22,7 @@ func _ready() -> void:
 		state.player = player
 		state.animation_player = animation_player
 		state.sprite = sprite
+		state.pressed = input_buffer.pressed
 
 
 func _switch(from: String, to: String, data) -> void:
@@ -36,9 +37,10 @@ func _switch(from: String, to: String, data) -> void:
 
 func _process(delta: float) -> void:
 	if (_current_state):
+		_current_state.pressed = input_buffer.pressed
 		_current_state.process(delta)
+
 
 func _physics_process(delta: float) -> void:
 	if (_current_state):
-		_current_state.pressed = input_buffer.pressed
 		_current_state.physics_process(delta)
