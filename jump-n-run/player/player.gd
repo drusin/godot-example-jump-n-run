@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody2D
 
 const ACCELERATION_FLOOR := 5.0

@@ -5,20 +5,23 @@ extends Node
 @export var sprite: Sprite2D
 @export var initial_state: State
 
+@onready var input_buffer: InputBuffer = $InputBuffer
+
 var _states: Array[PlayerState] = []
 var _current_state: PlayerState
 
 
 func _ready() -> void:
 	_current_state = initial_state
-	for child: PlayerState in get_children():
+	for child in get_children():
 		if not child is PlayerState:
 			continue
-		_states.append(child)
-		child.switch.connect(_switch)
-		child.player = player
-		child.animation_player = animation_player
-		child.sprite = sprite
+		var state: PlayerState = child
+		_states.append(state)
+		state.switch.connect(_switch)
+		state.player = player
+		state.animation_player = animation_player
+		state.sprite = sprite
 
 
 func _switch(from: String, to: String, data) -> void:
@@ -37,4 +40,5 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	if (_current_state):
+		_current_state.pressed = input_buffer.pressed
 		_current_state.physics_process(delta)

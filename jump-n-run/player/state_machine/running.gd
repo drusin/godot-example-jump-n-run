@@ -8,7 +8,7 @@ func physics_process(delta: float) -> void:
 	if not player.is_on_floor():
 		switch.emit(name, "Coyote", null)
 		return
-	if Input.is_action_just_pressed("ui_accept"):
+	if pressed[KEYS.JUMP].consume():
 		switch.emit(name, "Jump", null)
 		return
 

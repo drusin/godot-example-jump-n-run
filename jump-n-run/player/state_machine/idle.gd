@@ -8,7 +8,7 @@ func enter(_data = null) -> void:
 func process(_delta: float) -> void:
 	if not Input.get_axis("ui_left", "ui_right") == 0 or not player.velocity.x == 0:
 		switch.emit(name, "Running", null)
-	if Input.is_action_just_pressed("ui_accept"):
+	if pressed[KEYS.JUMP].consume():
 		switch.emit(name, "Jump", null)
 
 

@@ -24,5 +24,5 @@ func exit(data = null) -> void:
 func physics_process(delta: float) -> void:
     air.physics_process(delta)
 	
-    if Input.is_action_just_pressed("ui_accept"):
+    if pressed[KEYS.JUMP].consume():
         switch.emit(name, "Jump", null)
