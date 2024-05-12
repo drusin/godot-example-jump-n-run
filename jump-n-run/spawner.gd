@@ -7,5 +7,5 @@ func spawn() -> Node2D:
     var spawned: Node2D = to_spawn.instantiate()
     spawned.position.x = position.x
     spawned.position.y = position.y
-    spawn_to.add_child(spawned)
+    spawn_to.add_child.call_deferred(spawned)
     return spawned
