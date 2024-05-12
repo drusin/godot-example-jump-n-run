@@ -6,9 +6,9 @@ func enter(_data = null) -> void:
 
 
 func process(_delta: float) -> void:
-	if not Input.get_axis("ui_left", "ui_right") == 0 or not player.velocity.x == 0:
+	if not input.movement_axis == 0 or not player.velocity.x == 0:
 		switch.emit(name, "Running", null)
-	if pressed[KEYS.JUMP].consume():
+	if input.jump_pressed:
 		switch.emit(name, "Jump", null)
 
 

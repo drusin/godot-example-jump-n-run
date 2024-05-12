@@ -3,9 +3,8 @@ extends Node
 @export var player: CharacterBody2D
 @export var animation_player: AnimationPlayer
 @export var sprite: Sprite2D
+@export var player_input: PlayerInput
 @export var initial_state: State
-
-@onready var input_buffer: InputBuffer = $InputBuffer
 
 var _states: Array[PlayerState] = []
 var _current_state: PlayerState
@@ -22,7 +21,7 @@ func _ready() -> void:
 		state.player = player
 		state.animation_player = animation_player
 		state.sprite = sprite
-		state.pressed = input_buffer.pressed
+		state.input = player_input
 
 
 func _switch(from: String, to: String, data) -> void:
@@ -37,7 +36,6 @@ func _switch(from: String, to: String, data) -> void:
 
 func _process(delta: float) -> void:
 	if (_current_state):
-		_current_state.pressed = input_buffer.pressed
 		_current_state.process(delta)
 
 

@@ -10,7 +10,6 @@ func physics_process(delta: float) -> void:
 		switch.emit(name, "Running", null)
 		return
 	player.velocity += player.get_gravity() * delta
-	var direction = Input.get_axis("ui_left", "ui_right")
-	if direction != 0:
-		sprite.flip_h = direction > 0
-	player.velocity.x = lerpf(player.velocity.x, player.MAX_SPEED * direction, player.ACCELERATION_AIR * delta)
+	if input.movement_axis != 0:
+		sprite.flip_h = input.movement_axis > 0
+	player.velocity.x = lerpf(player.velocity.x, player.MAX_SPEED * input.movement_axis, player.ACCELERATION_AIR * delta)
