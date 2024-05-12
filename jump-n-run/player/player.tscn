@@ -82,7 +82,6 @@ libraries = {
 texture = ExtResource("1_w8i4p")
 flip_h = true
 hframes = 4
-frame = 1
 region_enabled = true
 region_rect = Rect2(0, 0, 96, 24)
 
