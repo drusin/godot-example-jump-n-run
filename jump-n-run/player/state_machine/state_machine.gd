@@ -24,12 +24,12 @@ func _ready() -> void:
 		state.input = player_input
 
 
-func _switch(from: String, to: String, data) -> void:
+func _switch(from: String, to: String) -> void:
 	for child: PlayerState in _states:
 		if child.name == from:
-			child.exit()
+			child.exit(to)
 		elif child.name == to:
-			child.enter(data)
+			child.enter(from)
 			_current_state = child
 	print("moved from " + from + " to " + to)
 

@@ -1,21 +1,21 @@
 extends PlayerState
 
-func enter(_data = null) -> void:
+func enter(_from: String) -> void:
 	animation_player.play(name)
 
 
 func physics_process(delta: float) -> void:
 	if not player.is_on_floor():
-		switch.emit(name, "Coyote", null)
+		switch.emit(name, "Coyote")
 		return
 	if input.jump_pressed:
-		switch.emit(name, "Jump", null)
+		switch.emit(name, "Jump")
 		return
 
 	if input.movement_axis == 0:
 		if abs(player.velocity.x) < 1:
 			player.velocity.x = 0
-			switch.emit(name, "Idle", null)
+			switch.emit(name, "Idle")
 			return
 		else:
 			_decelerate(delta)

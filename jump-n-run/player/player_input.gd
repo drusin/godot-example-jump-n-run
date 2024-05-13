@@ -38,5 +38,11 @@ func _unhandled_input(event: InputEvent) -> void:
 
 class BufferedAction extends RefCounted: 
 	var _last_timestamp := 0.0
-	func pressed() -> bool: return Time.get_ticks_msec() - _last_timestamp <= BUFFER_MS
+
+	func pressed() -> bool:
+		# "consume" the press on read, else double jump is triggered if you hold the button for longer than a frame
+		var timestamp := _last_timestamp
+		_last_timestamp = 0.0 
+		return Time.get_ticks_msec() - timestamp <= BUFFER_MS
+
 	func trigger() -> void:	_last_timestamp = Time.get_ticks_msec()
