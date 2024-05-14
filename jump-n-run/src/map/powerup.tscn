@@ -3,6 +3,8 @@
 [ext_resource type="Script" path="res://src/map/powerup.gd" id="1_o77ai"]
 
 [node name="Powerup" type="Area2D"]
+collision_layer = 4096
+collision_mask = 0
 script = ExtResource("1_o77ai")
 
 [node name="Collision" type="CollisionShape2D" parent="."]

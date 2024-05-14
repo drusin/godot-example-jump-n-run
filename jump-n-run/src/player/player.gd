@@ -14,6 +14,8 @@ const COYOTE_TIME := 0.1
 
 var powerups: Array[bool] = []
 
+@onready var _head: Area2D = $Head
+
 
 func _init() -> void:
 	for i in range(0, Powerup.size()):
@@ -27,3 +29,11 @@ func _physics_process(_delta: float) -> void:
 
 func power_up(powerup: Powerup) -> void:
 	powerups[powerup] = true
+
+
+func _on_head_body_entered(body: Node2D) -> void:
+	if not body is TileMapLayer:
+		return
+	var layer := body as TileMapLayer
+	var coords := layer.local_to_map(_head.global_position)
+	layer.erase_cell(Vector2i(coords.x, coords.y - 1))
