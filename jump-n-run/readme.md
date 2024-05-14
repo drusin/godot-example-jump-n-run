@@ -8,3 +8,4 @@ Currently implemented features:
 * Coyote time
 * Jump buffer
 * Double jump power up
+* (WIP) breakable blocks

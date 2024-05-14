@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://3j4mrlf5u4kh"]
+[gd_scene load_steps=4 format=3 uid="uid://3j4mrlf5u4kh"]
 
 [ext_resource type="Texture2D" uid="uid://d0rqq0yv0fvur" path="res://assets/tilemap.png" id="1_utu3r"]
-[ext_resource type="Script" path="res://src/map/layer_breakable.gd" id="2_45i86"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vinn2"]
 texture = ExtResource("1_utu3r")
@@ -24,4 +23,3 @@ sources/0 = SubResource("TileSetAtlasSource_vinn2")
 
 [node name="LayerBreakable" type="TileMapLayer"]
 tile_set = SubResource("TileSet_j3ium")
-script = ExtResource("2_45i86")
