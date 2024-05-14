@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://5y526683fn7t"]
 
-[ext_resource type="Script" path="res://player/state_machine/state_machine.gd" id="1_by86n"]
-[ext_resource type="Script" path="res://player/state_machine/air.gd" id="2_2uvo1"]
-[ext_resource type="Script" path="res://player/state_machine/coyote.gd" id="3_a82ir"]
-[ext_resource type="Script" path="res://player/state_machine/idle.gd" id="4_7jre0"]
-[ext_resource type="Script" path="res://player/state_machine/jumping.gd" id="5_uk3hn"]
-[ext_resource type="Script" path="res://player/state_machine/running.gd" id="6_v8km6"]
+[ext_resource type="Script" path="res://src/player/state_machine/state_machine.gd" id="1_by86n"]
+[ext_resource type="Script" path="res://src/player/state_machine/air.gd" id="2_2uvo1"]
+[ext_resource type="Script" path="res://src/player/state_machine/coyote.gd" id="3_a82ir"]
+[ext_resource type="Script" path="res://src/player/state_machine/idle.gd" id="4_7jre0"]
+[ext_resource type="Script" path="res://src/player/state_machine/jumping.gd" id="5_uk3hn"]
+[ext_resource type="Script" path="res://src/player/state_machine/running.gd" id="6_v8km6"]
 
 [node name="StateMachine" type="Node" node_paths=PackedStringArray("initial_state")]
 script = ExtResource("1_by86n")

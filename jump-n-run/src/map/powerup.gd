@@ -2,8 +2,6 @@ extends Area2D
 
 @export var powerup: Player.Powerup
 
-@onready var collision: CollisionShape2D = $Collision
-
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:

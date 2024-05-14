@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cn3ldgbnyqkkd"]
 
-[ext_resource type="PackedScene" uid="uid://br315y1gaq24m" path="res://powerup.tscn" id="1_didg7"]
+[ext_resource type="PackedScene" uid="uid://br315y1gaq24m" path="res://src/map/powerup.tscn" id="1_didg7"]
 [ext_resource type="Texture2D" uid="uid://d0rqq0yv0fvur" path="res://assets/tilemap.png" id="2_ka7ti"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g855m"]

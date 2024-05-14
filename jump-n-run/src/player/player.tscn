@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://4sv3s2lr7p00"]
 
-[ext_resource type="Script" path="res://player/player.gd" id="1_af45o"]
+[ext_resource type="Script" path="res://src/player/player.gd" id="1_af45o"]
 [ext_resource type="Texture2D" uid="uid://dr2vkbctcntmw" path="res://assets/tilemap-characters_packed.png" id="1_w8i4p"]
-[ext_resource type="PackedScene" uid="uid://5y526683fn7t" path="res://player/state_machine/state_machine.tscn" id="3_i0gnj"]
-[ext_resource type="Script" path="res://player/player_input.gd" id="4_7gjr0"]
+[ext_resource type="PackedScene" uid="uid://5y526683fn7t" path="res://src/player/state_machine/state_machine.tscn" id="3_i0gnj"]
+[ext_resource type="Script" path="res://src/player/player_input.gd" id="4_7gjr0"]
 
 [sub_resource type="Animation" id="Animation_cigb2"]
 resource_name = "Air"

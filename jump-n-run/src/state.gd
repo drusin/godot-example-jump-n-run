@@ -3,7 +3,7 @@ extends Node
 
 ## Generic state to use in a state machine
 
-## Should be emited if the state wants to switch to a different state [br]
+## Should be emitted if the state wants to switch to a different state [br]
 ##
 ## [param from]: current state name [br]
 ## [param to]: state to switch to [br]
