@@ -1,3 +1,4 @@
+class_name Spawner
 extends Node2D
 
 @export var to_spawn: PackedScene

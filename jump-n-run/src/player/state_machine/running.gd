@@ -4,10 +4,7 @@ func enter(_from: String) -> void:
 	animation_player.play(name)
 
 
-func physics_process(delta: float) -> void:
-	if not player.is_on_floor():
-		switch.emit(name, "Coyote")
-		return
+func process(delta: float) -> void:
 	if input.jump_pressed:
 		switch.emit(name, "Jump")
 		return
@@ -16,11 +13,15 @@ func physics_process(delta: float) -> void:
 		if abs(player.velocity.x) < 1:
 			player.velocity.x = 0
 			switch.emit(name, "Idle")
-			return
 		else:
 			_decelerate(delta)
 	else:
 		_accelerate(delta)
+
+
+func physics_process(_delta: float) -> void:
+	if not player.is_on_floor():
+		switch.emit(name, "Coyote")
 
 
 func _decelerate(delta: float) -> void:

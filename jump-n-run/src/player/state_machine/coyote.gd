@@ -1,6 +1,6 @@
 extends PlayerState
 
-@export var air: Node
+@export var air: PlayerState
 
 var _timer: SceneTreeTimer
 
@@ -21,7 +21,11 @@ func exit(to: String) -> void:
 		_timer = null
 
 
-func physics_process(delta: float) -> void:
-	air.physics_process(delta)
+func process(delta: float) -> void:
+	air.process(delta)
 	if input.jump_pressed:
 		switch.emit(name, "Jump")
+
+
+func physics_process(delta: float) -> void:
+	air.physics_process(delta)

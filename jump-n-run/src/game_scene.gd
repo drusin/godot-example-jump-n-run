@@ -1,7 +1,7 @@
 extends Node2D
 
-@onready var player_spawner = $PlayerSpawner
-@onready var scene_camera = $SceneCamera
+@onready var player_spawner: Spawner = $PlayerSpawner
+@onready var scene_camera: Camera2D = $SceneCamera
 
 
 func _ready() -> void:
