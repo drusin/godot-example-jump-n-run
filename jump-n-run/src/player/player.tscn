@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://4sv3s2lr7p00"]
+[gd_scene load_steps=12 format=3 uid="uid://4sv3s2lr7p00"]
 
 [ext_resource type="Script" path="res://src/player/player.gd" id="1_af45o"]
 [ext_resource type="Texture2D" uid="uid://dr2vkbctcntmw" path="res://assets/tilemap-characters_packed.png" id="1_w8i4p"]
 [ext_resource type="PackedScene" uid="uid://5y526683fn7t" path="res://src/player/state_machine/state_machine.tscn" id="3_i0gnj"]
 [ext_resource type="Script" path="res://src/player/player_input.gd" id="4_7gjr0"]
+[ext_resource type="Script" path="res://src/player/sensors.gd" id="5_0d1e0"]
 
 [sub_resource type="Animation" id="Animation_cigb2"]
 resource_name = "Air"
@@ -71,7 +72,7 @@ radius = 8.0
 height = 22.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a8pn3"]
-size = Vector2(16, 3)
+size = Vector2(12, 3)
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 4864
@@ -92,14 +93,6 @@ region_rect = Rect2(0, 0, 96, 24)
 [node name="CollisionBody" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_mdg58")
 
-[node name="Head" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 512
-
-[node name="CollisionHead" type="CollisionShape2D" parent="Head"]
-position = Vector2(0, -10)
-shape = SubResource("RectangleShape2D_a8pn3")
-
 [node name="StateMachine" parent="." node_paths=PackedStringArray("player", "animation_player", "sprite", "player_input", "initial_state") instance=ExtResource("3_i0gnj")]
 player = NodePath("..")
 animation_player = NodePath("../AnimationPlayer")
@@ -110,6 +103,15 @@ initial_state = NodePath("Idle")
 [node name="PlayerInput" type="Node" parent="."]
 script = ExtResource("4_7gjr0")
 
-[node name="Collisions" type="Node" parent="."]
+[node name="Sensors" type="Node2D" parent="."]
+script = ExtResource("5_0d1e0")
 
-[connection signal="body_entered" from="Head" to="." method="_on_head_body_entered"]
+[node name="Head" type="Area2D" parent="Sensors"]
+collision_layer = 0
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sensors/Head"]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_a8pn3")
+
+[connection signal="body_entered" from="Sensors/Head" to="Sensors" method="_on_head_body_entered"]
