@@ -1,0 +1,30 @@
+name: Deploy Pages
+on:
+  push:
+      branches: [ "main" ]
+
+jobs:
+  doit:
+    name: Doit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        name: Checkout
+
+      - uses: chickensoft-games/setup-godot@v2.0.1
+        name: Setup Godot
+        with:
+          version: 4.3.0-dev6 # also valid: 4.0.0.rc1 or 4.0.0, etc
+          use-dotnet: false
+          include-templates: true
+
+      - name: Export
+        run: |
+          mkdir export
+          godot --headless --export-release Web export/index.html
+
+      - name: deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./export
